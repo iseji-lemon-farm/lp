@@ -14,12 +14,20 @@
             <div class="logo">
                 <img src="logo.png" alt="伊勢路レモン農園" class="logo-img">
             </div>
-            <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
                 <ul>
-                    <li><a href="#about">農園について</a></li>
-                    <li><a href="#products">商品紹介</a></li>
+                    <li><a href="#about" onclick="closeMenu()">農園について</a></li>
+                    <li><a href="#products" onclick="closeMenu()">商品紹介</a></li>
+                    <li><a href="#benefits" onclick="closeMenu()">レモンの効能</a></li>
+                    <li><a href="#storage" onclick="closeMenu()">保存方法</a></li>
+                    <li><a href="#safety" onclick="closeMenu()">安心安全</a></li>
                     <li><a href="https://isejilemon.base.shop/" class="shop-btn" target="_blank">オンラインショップ</a></li>
-                    <li><a href="#contact">お問い合わせ</a></li>
+                    <li><a href="#contact" onclick="closeMenu()">お問い合わせ</a></li>
                 </ul>
             </nav>
         </div>
@@ -42,8 +50,21 @@
                 <h2>農園について</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <h3>こだわりの栽培</h3>
-                        <p>伊勢路レモン農園では、三重県の温暖な気候と豊かな自然環境を活かし、減農薬栽培で子どもでも安心・安全なレモンを育てています。</p>
+                        <h3>ABOUT</h3>
+                        <p>伊勢から熊野を結ぶ世界遺産熊野古道「伊勢路」の地でレモン作ってます🍋</p>
+                        
+                        <p><strong>【生産者】</strong><br>
+                        伊勢路レモン農園　氏原 翔平</p>
+                        
+                        <p>三重県紀北町出身<br>
+                        ホテル勤務8年→フリーランス＆レモン農家へ<br>
+                        「地元で軸になる仕事をしたい」「レモンで地域を盛り上げたい」</p>
+                        
+                        <p>そして何より、食べ物の中で一番レモンが好き！<br>
+                        酸っぱくて思わず顔がすぼんでしまう、いつのまにか笑顔がこぼれるようなレモンを作っています。</p>
+                        
+                        <p>伊勢路レモン農園では、三重県の温暖な気候と豊かな自然環境を活かしてレモンを育てています。</p>
+                        
                         <p>一つ一つ丁寧に手作業で収穫し、新鮮さにこだわって皆様にお届けします。</p>
                     </div>
                     <div class="about-image">
@@ -60,20 +81,79 @@
                 <div class="product-grid">
                     <div class="product-card">
                         <img src="meyer_lemon.jpg" alt="マイヤーレモン" class="product-image">
-                        <h3>マイヤーレモン</h3>
-                        <p>三重県の産地。レモンとオレンジの掛け合わせで生まれた品種。まろやかな酸味で食べやすく、料理やドリンクにも相性ピッタリ。果実は濃い黄色～橙色。</p>
+                        <h3>【マイヤーレモン】</h3>
+                        <p>レモンとオレンジの自然交配でできたれくてかわいい形のレモン。甘みのある果汁はそのままでもおいしく食べられて、お料理からスイーツまで幅広く使える優れモノ！</p>
                     </div>
                     <div class="product-card">
                         <img src="pink_lemonade.jpg" alt="ピンクレモネード" class="product-image">
-                        <h3>ピンクレモネード</h3>
-                        <p>ピンク色の果肉が特徴。レモンらしいしっかりとした酸味。果皮は緑色のストライプ。</p>
+                        <h3>【ピンクレモネード】</h3>
+                        <p>果肉はピンク色で、果皮には緑色のストライプ模様が現れる？個性的なレモン。しっかりした酸味がうれしい。</p>
                     </div>
                     <div class="product-card">
                         <img src="hime_lemon.jpg" alt="姫レモン" class="product-image">
-                        <h3>姫レモン</h3>
-                        <p>別名「赤レモン」。すだち程の小ぶりサイズ。果実はオレンジ色で、山椒のような香り。レモンらしく酸味は強め。お酒はもちろん、日本料理やエストニック料理との相性も抜群。</p>
+                        <h3>【姫レモン】</h3>
+                        <p>サイズがすだち程の小さなレモン。山椒のような独特の香りで、カクテル、日本食やエスニック料理などにぴったり。</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- レモンの効能 -->
+        <section id="benefits" class="benefits">
+            <div class="container">
+                <h2>レモンの効能いろいろ</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>🍋免疫力向上🍋</h3>
+                        <p>感染症予防のためのβ-クリプトキサンチンとビタミンCが豊富</p>
+                        <br>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3>🍋疲労回復🍋</h3>
+                        <p>レモン果汁には疲労回復効果の高いクエン酸が含まれます</p>
+                        <br>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3>🍋美肌効果🍋</h3>
+                        <p>ビタミンやポスフェノールで、みずみずしく透明感のあるお肌に</p>
+                        <br>
+                    </div>
+                </div>
+                
+                <div class="other-benefits">
+                    <h3>その他にも......</h3>
+                    <p>むくみ解消、骨粗鬆症予防、高血圧対策、動脈硬化予防、腸内環境改善、デトックス効果、貧血予防、口臭予防、リラックス効果、若さを保つ効果なども期待できると言われています</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- レモンの保存方法 -->
+        <section id="storage" class="storage">
+            <div class="container">
+                <h2>レモンの保存方法</h2>
+                <div class="storage-methods">
+                    <div class="storage-method">
+                        <h3>◾️冷蔵保存◾️　期間約1ヶ月</h3>
+                        <p>まるごと1個をそのままラップ or 新聞紙で包み、ジッパー付き保存袋へ入れる</p>
+                        <br>
+                    </div>
+                    
+                    <div class="storage-method">
+                        <h3>◾️冷凍保存◾️　期間約2ヶ月</h3>
+                        <p>まるごと、くし切り、輪切り、ざく切りなど使いやすい形にしてラップで包み、ジッパー付き保存袋へ入れる</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 安心安全の減農薬 -->
+        <section id="safety" class="safety">
+            <div class="container">
+                <h2>安心安全の減農薬</h2>
+                <p>伊勢路レモン農園ではワックスや防腐剤を使用しておりません。<br>
+                どなたでも安心して皮までおいしくお召し上がりいただけます。</p>
             </div>
         </section>
 
@@ -111,5 +191,21 @@
             <p>&copy; 2024 伊勢路レモン農園. All rights reserved.</p>
         </div>
     </footer>
+    
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+        
+        function closeMenu() {
+            const nav = document.querySelector('.nav-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            nav.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    </script>
 </body>
 </html>
