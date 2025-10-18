@@ -6,9 +6,10 @@
 }
 
 body {
-    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
-    line-height: 1.6;
+    font-family: "Noto Sans JP", sans-serif;
+    line-height: 1.6em;
     color: #333;
+    letter-spacing: 0.02em;
 }
 
 .container {
@@ -33,6 +34,9 @@ header .container {
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -81,6 +85,9 @@ header .container {
     list-style: none;
     gap: 1.2rem;
     flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
 .nav-menu a {
@@ -127,6 +134,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 100%;
 }
 
 .hero-logo {
@@ -140,10 +148,11 @@ main {
 .hero-content h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: 1.2em;
     font-weight: 300;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    letter-spacing: 0.02em;
 }
 
 .hero-content p {
@@ -203,7 +212,8 @@ h2 {
 .about-text p {
     margin-bottom: 1rem;
     color: #666;
-    line-height: 1.8;
+    line-height: 1.8em;
+    letter-spacing: 0.01em;
 }
 
 .about-image {
@@ -254,7 +264,8 @@ h2 {
 .product-card p {
     padding: 0 1rem 1.5rem;
     color: #666;
-    line-height: 1.6;
+    line-height: 1.6em;
+    letter-spacing: 0.01em;
 }
 
 /* ショップセクション */
@@ -365,7 +376,8 @@ footer p {
         position: fixed;
         top: 100px;
         right: -100%;
-        width: 250px;
+        max-width: 250px;
+        width: 80%;
         height: calc(100vh - 100px);
         background: white;
         box-shadow: -2px 0 10px rgba(0,0,0,0.1);
@@ -453,7 +465,8 @@ footer p {
 
 @media (max-width: 480px) {
     .nav-menu {
-        width: 200px;
+        max-width: 200px;
+        width: 75%;
         top: 80px;
         height: calc(100vh - 80px);
     }
