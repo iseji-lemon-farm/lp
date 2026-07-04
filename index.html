@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伊勢路レモン農園｜三重県紀北町・熊野古道「伊勢路」のレモン</title>
+<meta name="description" content="三重県紀北町、熊野古道「伊勢路」のふもとで育てた国産レモン。マイヤーレモン・姫レモン・ピンクレモネード。2026年10月5日「レモンの日」販売開始。販売開始のお知らせは公式LINEで。">
+<meta property="og:title" content="伊勢路レモン農園｜10月5日「レモンの日」販売開始">
+<meta property="og:description" content="食べものの中で、いちばん好きなのはレモンでした。三重県紀北町の国産レモン農園。">
+<meta property="og:image" content="https://iseji-lemon-farm.github.io/lp/images/hero_giftbox.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   伊勢路レモン農園 LP
+   カラー：白基調＋レモン黄＋葉緑＋墨グレー（既存ブランド準拠）
+   ============================================================ */
+:root{
+  --paper:#FDFCF8;
+  --ink:#3C3C3C;
+  --gray:#8A8A8A;
+  --line-soft:#E7E4DA;
+  --lemon:#F2D435;
+  --lemon-deep:#E9C93B;
+  --leaf:#8FAE3E;
+  --leaf-deep:#5E7A2E;
+  --cream:#FBF6E3;
+  --band:#F4F7EA;
+  --line-green:#06C755;
+  --orange:#E8A33B;
+  --radius:14px;
+  --maxw:680px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Zen Kaku Gothic New',"Hiragino Kaku Gothic ProN",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.9;
+  font-size:15.5px;
+  letter-spacing:.02em;
+  padding-bottom:76px; /* 下部固定バーの逃げ */
+}
+img{max-width:100%;display:block}
+a{color:var(--leaf-deep)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h1,h2,h3,.display{font-family:'Zen Maru Gothic','Zen Kaku Gothic New',sans-serif}
+
+/* ---------- ヘッダー ---------- */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(253,252,248,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line-soft);
+}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px}
+header.site img{height:34px;width:auto}
+.menu-btn{
+  width:44px;height:44px;border:none;background:transparent;cursor:pointer;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  border-radius:10px;
+}
+.menu-btn span{
+  display:block;width:22px;height:2.2px;background:var(--ink);border-radius:2px;
+  transition:transform .25s ease, opacity .2s ease;
+}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7.2px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.2px) rotate(-45deg)}
+.site-nav{
+  display:none;
+  border-top:1px solid var(--line-soft);
+  background:var(--paper);
+  padding:8px 20px 20px;
+  max-width:var(--maxw);margin:0 auto;
+}
+.site-nav.open{display:block}
+.site-nav a{
+  display:block;text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;
+  padding:12px 4px;border-bottom:1px dashed var(--line-soft);
+}
+.site-nav .nav-cta{padding-top:16px;text-align:center}
+.site-nav .nav-cta a{border-bottom:none;display:inline-block}
+.site-nav .nav-sub{font-size:13px;color:var(--gray);margin-top:10px}
+
+/* ---------- ボタン共通 ---------- */
+.btn{display:inline-block;text-decoration:none;font-weight:700;text-align:center;border-radius:999px;transition:transform .15s ease, box-shadow .15s ease}
+.btn:active{transform:scale(.98)}
+.btn-line{background:var(--line-green);color:#fff;padding:16px 30px;font-size:16px;box-shadow:0 4px 14px rgba(6,199,85,.28)}
+.btn-line small{display:block;font-weight:500;font-size:11px;opacity:.92;letter-spacing:.05em}
+.btn-base{background:var(--lemon);color:var(--ink);padding:13px 26px;font-size:14.5px}
+.btn-biz{background:transparent;color:var(--ink);border:1.6px solid var(--ink);padding:12px 24px;font-size:14px}
+.cta-note{font-size:12px;color:var(--gray);margin-top:10px}
+
+/* ---------- ファーストビュー ---------- */
+.hero{
+  padding:64px 0 48px;
+  position:relative;
+  overflow:hidden;
+}
+/* 原稿用紙のマス目（文集モチーフ）：うっすらと */
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size:26px 26px;
+  opacity:.35;
+  mask-image:radial-gradient(ellipse 90% 75% at 50% 35%, #000 30%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 75% at 50% 35%, #000 30%, transparent 75%);
+  pointer-events:none;
+}
+.hero .wrap{position:relative}
+.hero .quote{
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-size:clamp(21px,5.6vw,30px);
+  font-weight:700;line-height:1.75;letter-spacing:.04em;
+}
+.hero .quote .marker{
+  background:linear-gradient(transparent 62%, rgba(242,212,53,.55) 62%);
+  padding:0 2px;
+}
+.hero .story{margin-top:18px;font-size:15px;color:var(--ink)}
+.hero .name{margin-top:14px;font-size:13px;color:var(--gray);letter-spacing:.12em}
+.hero .cta{margin-top:28px}
+.hero .both-welcome{margin-top:14px;font-size:12.5px;color:var(--gray)}
+
+/* ---------- 写真 ---------- */
+.photo-frame{
+  background:#fff;padding:10px 10px 14px;border-radius:6px;
+  box-shadow:0 6px 22px rgba(60,60,60,.12);
+  transform:rotate(-1.2deg);
+  margin:30px auto 6px;max-width:520px;
+}
+.photo-frame img{border-radius:3px;width:100%}
+.photo-frame .cap{font-size:11.5px;color:var(--gray);text-align:center;margin-top:8px;letter-spacing:.06em}
+.hero .photo-frame{transform:rotate(1.4deg)}
+.about .photo{box-shadow:0 6px 22px rgba(60,60,60,.10)}
+
+/* ---------- 季節の帯（熟していくレモン） ---------- */
+.season{background:var(--band);border-radius:var(--radius);padding:20px 18px;margin-top:34px}
+.season .heads{display:flex;justify-content:space-between;font-size:13px;font-weight:700}
+.season .heads .g{color:var(--leaf-deep)}
+.season .heads .y{color:var(--orange)}
+.season .rail{position:relative;height:34px;margin:10px 4px}
+.season .rail::before{
+  content:"";position:absolute;left:0;right:0;top:50%;height:4px;border-radius:4px;
+  background:linear-gradient(90deg,#7FA845,#A8B23C,#D8B93A,#E8A33B);
+  transform:translateY(-50%);
+}
+.season .dot{
+  position:absolute;top:50%;transform:translate(-50%,-50%);
+  width:34px;height:34px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10.5px;font-weight:700;border:2px solid;
+}
+.season .notes{display:flex;justify-content:space-between;font-size:11px;color:var(--gray);line-height:1.6}
+.season .notes div:last-child{text-align:right}
+
+/* ---------- カウントダウン ---------- */
+.countdown{
+  background:var(--cream);border-radius:var(--radius);
+  padding:26px 20px;text-align:center;
+}
+.countdown .label{font-size:13px;font-weight:700;color:var(--leaf-deep);letter-spacing:.15em}
+.countdown .date{font-family:'Zen Maru Gothic';font-size:clamp(26px,6vw,34px);font-weight:700;margin:6px 0 2px}
+.countdown .days{font-size:14px;color:var(--ink)}
+.countdown .days b{font-size:26px;color:var(--leaf-deep);font-family:'Zen Maru Gothic'}
+
+/* ---------- セクション見出し ---------- */
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.sec-head .lemon-ill{flex-shrink:0;display:block}
+.sec-head h2{font-size:clamp(19px,4.6vw,23px);font-weight:700;letter-spacing:.03em}
+.sec-lead{font-size:13.5px;color:var(--gray);margin-bottom:24px}
+
+/* ---------- 農園について ---------- */
+.about .photo{border-radius:var(--radius);margin:22px 0}
+.about p{margin-bottom:14px}
+
+/* ---------- 品種カード ---------- */
+.variety{border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;margin-bottom:22px;background:#fff}
+.variety img{width:100%;height:auto}
+.variety .body{padding:20px 20px 22px}
+.variety h3{font-size:18px;margin-bottom:2px}
+.variety .tagline{font-size:12.5px;color:var(--leaf-deep);font-weight:700;margin-bottom:10px}
+.variety p{font-size:14px}
+.variety .limited{
+  display:inline-block;margin-top:10px;font-size:11.5px;font-weight:700;
+  color:var(--orange);border:1.4px solid var(--orange);border-radius:999px;padding:3px 12px;
+}
+
+/* ---------- 楽しみ方 ---------- */
+.enjoy ul{list-style:none;margin:18px 0}
+.enjoy li{
+  padding:13px 0 13px 30px;position:relative;
+  border-bottom:1px dashed var(--line-soft);font-size:14.5px;
+}
+.enjoy li::before{
+  content:"";position:absolute;left:0;top:16px;
+  width:19px;height:14px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 19'%3E%3Cpath d='M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z' fill='%23F2D435' stroke='%238FAE3E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cellipse cx='19.5' cy='3.4' rx='3.8' ry='1.7' fill='%238FAE3E' transform='rotate(-24 19.5 3.4)'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.enjoy li b{font-weight:700}
+
+/* ---------- 個人向け／事業者向け 共通カード ---------- */
+.panel{background:var(--cream);border-radius:var(--radius);padding:28px 22px}
+.panel.white{background:#fff;border:1px solid var(--line-soft)}
+.panel h3{font-size:17px;margin-bottom:12px}
+.panel p{font-size:14px;margin-bottom:12px}
+.panel .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.badge-line{
+  display:inline-block;background:#fff;border:1.5px solid var(--line-green);
+  color:var(--line-green);font-size:11.5px;font-weight:700;border-radius:999px;
+  padding:3px 12px;margin-bottom:8px;
+}
+.first-reco{
+  background:#fff;border-left:4px solid var(--lemon-deep);
+  padding:12px 16px;border-radius:0 10px 10px 0;font-size:13.5px;margin:16px 0;
+}
+
+/* ---------- FAQ ---------- */
+details{border-bottom:1px solid var(--line-soft)}
+details summary{
+  cursor:pointer;list-style:none;padding:17px 30px 17px 2px;
+  font-weight:700;font-size:14.5px;position:relative;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{
+  content:"＋";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  color:var(--leaf);font-weight:700;
+}
+details[open] summary::after{content:"−"}
+details .a{padding:0 2px 18px;font-size:14px;color:var(--ink)}
+
+/* ---------- SNS ---------- */
+.sns .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.sns .card{
+  border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:20px 16px;text-align:center;text-decoration:none;color:var(--ink);background:#fff;
+}
+.sns .card .t{font-weight:700;font-size:14.5px}
+.sns .card .d{font-size:11.5px;color:var(--gray);margin-top:4px}
+@media (max-width:420px){.sns .cards{grid-template-columns:1fr}}
+
+/* ---------- 最後のCTA ---------- */
+.final{background:var(--band);text-align:center}
+.final h2{font-size:clamp(19px,4.8vw,23px);margin-bottom:8px}
+.final p{font-size:13.5px;color:var(--gray);margin-bottom:24px}
+.final .sub-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+.final .sub-links a{
+  font-size:13px;text-decoration:none;color:var(--ink);
+  border:1.4px solid var(--line-soft);background:#fff;border-radius:999px;padding:9px 18px;
+}
+
+/* ---------- フッター ---------- */
+footer{padding:36px 0 40px;border-top:1px solid var(--line-soft)}
+footer img{height:40px;width:auto;margin-bottom:14px}
+footer .info{font-size:12.5px;color:var(--gray);line-height:2}
+footer .copy{font-size:11px;color:var(--gray);margin-top:18px}
+
+/* ---------- 画面下部固定 LINEバー（スマホの変換装置） ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(253,252,248,.96);backdrop-filter:blur(8px);
+  border-top:1px solid var(--line-soft);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+}
+.sticky-cta .inner{max-width:var(--maxw);margin:0 auto;display:flex;gap:10px;align-items:center}
+.sticky-cta .msg{font-size:11px;line-height:1.5;color:var(--gray);flex:1;min-width:0}
+.sticky-cta .msg b{color:var(--ink);font-size:12px;display:block}
+.sticky-cta a{flex-shrink:0}
+
+/* ---------- ふわっと表示（reduced motion対応） ---------- */
+.fade{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.fade.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .fade{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+
+/* ---------- チラシ：サムネイル＋ポップアップ拡大 ---------- */
+.flyers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.flyers figure{margin:0}
+.flyers img{
+  width:100%;border-radius:10px;border:1px solid var(--line-soft);
+  box-shadow:0 4px 14px rgba(60,60,60,.10);cursor:zoom-in;
+}
+.flyers .cap{font-size:11.5px;color:var(--gray);text-align:center;margin-top:6px}
+.flyers .dl{display:block;text-align:center;font-size:11.5px;margin-top:2px}
+.lightbox{
+  position:fixed;inset:0;z-index:100;background:rgba(40,40,36,.86);
+  display:none;align-items:flex-start;justify-content:center;
+  padding:20px;overflow:auto;cursor:zoom-out;
+}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(92vw,760px);height:auto;border-radius:8px;margin:auto}
+.lightbox .close{
+  position:fixed;top:14px;right:16px;width:40px;height:40px;border-radius:50%;
+  background:#fff;color:var(--ink);border:none;font-size:20px;cursor:pointer;font-weight:700;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ▼▼ 差し替え用リンク定数（実装後、ここだけ直せばOK） ▼▼
+     ============================================================ -->
+<script>
+const CONFIG = {
+  LINE_URL:      "https://lin.ee/OiB4KGi",            // 公式LINE友だち追加URL（設定済み）
+  BASE_URL:      "https://isejilemon.base.shop/",
+  INSTAGRAM_URL: "https://www.instagram.com/iseji_lemon_farm/",
+  CONTACT_MAIL:  "iseji.lemon.farm@gmail.com",
+  NEWSLETTER_URL:"",                                   // ★要差し替え：Substack創刊後にURLを入れる（空なら「準備中」表示）
+  PRICE_PDF_URL: "",                                   // ★任意：お取引価格表PDFのURL（リポジトリに置く場合 "price_b2b.pdf" など）
+  SALE_DATE:     "2026-10-05"                          // レモンの日
+};
+</script>
+
+<!-- ヘッダー -->
+<header class="site">
+  <div class="wrap">
+    <a href="#top" aria-label="伊勢路レモン農園"><img src="images/logo_yoko.png" alt="伊勢路レモン農園" onerror="this.style.display='none'"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="site-nav" id="siteNav" aria-label="ページ内メニュー">
+    <a href="#sale">10月5日「レモンの日」</a>
+    <a href="#about">農園と園主のこと</a>
+    <a href="#varieties">3つのレモン</a>
+    <a href="#enjoy">レモンの楽しみ方</a>
+    <a href="#personal">ご予約・ご購入</a>
+    <a href="#business">飲食店・宿泊施設の方へ</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#sns">Instagram・農園便り</a>
+    <div class="nav-cta">
+      <a class="btn btn-line js-line" href="#" style="padding:13px 22px;font-size:14.5px;box-shadow:none">LINEで販売開始のお知らせを受け取る</a>
+      <a class="js-base nav-sub" href="#">オンラインショップ（BASE）</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- §1 ファーストビュー -->
+<section class="hero">
+  <div class="wrap">
+    <p class="quote">「<span class="marker">食べものの中で、いちばん好きなのはレモンでした。</span>」</p>
+    <p class="story">小学生の作文にそう書いた少年が、大人になって、<br>三重県紀北町でレモン農家になりました。</p>
+    <p class="name">伊勢路レモン農園｜世界遺産・熊野古道「伊勢路」のふもと</p>
+    <div class="cta">
+      <a class="btn btn-line js-line" href="#">LINEで販売開始のお知らせを受け取る<small>2026年10月5日「レモンの日」販売開始</small></a>
+      <p class="both-welcome">個人のお客様のご購入も、飲食店・宿泊施設さまからのご相談も、どちらも歓迎です。</p>
+    </div>
+
+    <figure class="photo-frame">
+      <img src="images/hero_giftbox.jpg" alt="伊勢路レモン農園の3品種：ピンクレモネード・姫レモン・マイヤーレモン" onerror="this.parentElement.style.display='none'">
+      <figcaption class="cap">左から、ピンクレモネード・姫レモン・マイヤーレモン</figcaption>
+    </figure>
+
+    <!-- 季節の帯：緑から黄へ -->
+    <div class="season" aria-label="収穫時期の色の移り変わり">
+      <div class="heads"><span class="g">グリーン</span><span class="y">イエロー</span></div>
+      <div class="rail">
+        <span class="dot" style="left:8%;  border-color:#7FA845;color:#7FA845">10月</span>
+        <span class="dot" style="left:38%; border-color:#A8B23C;color:#A8B23C">11月</span>
+        <span class="dot" style="left:66%; border-color:#D8B93A;color:#B78F1F">12月</span>
+        <span class="dot" style="left:92%; border-color:#E8A33B;color:#E8A33B">1月</span>
+      </div>
+      <div class="notes">
+        <div>フレッシュな酸味<br>ジュース・カクテル・はちみつ漬けに</div>
+        <div>皮やわらか・酸味マイルド<br>ジャムやお菓子作りに</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §2 販売開始のお知らせ -->
+<section id="sale">
+  <div class="wrap fade">
+    <div class="countdown">
+      <p class="label">SALE START</p>
+      <p class="date">10月5日は「レモンの日」。</p>
+      <p class="days js-countdown">今年の販売開始まで、あと <b>—</b> 日</p>
+      <p style="font-size:13px;margin-top:14px">
+        まずはフレッシュな酸味のグリーンレモンから。12月にはやさしい甘みのイエローに変わり、<br class="pc-br">1月の完熟まで、季節ごとに違う顔を楽しめます。
+      </p>
+      <div style="margin-top:20px">
+        <a class="btn btn-line js-line" href="#">LINEで販売開始のお知らせを受け取る<small>予約・わけあり品・レシピもLINEが最速です</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §3 農園と園主のこと -->
+<section class="about" id="about">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>いちばん好きだった食べものを、仕事にしました。</h2></div>
+    <img class="photo" src="images/producer_field.jpg" alt="畑でレモンを見つめる園主・氏原翔平">
+    <p>こんにちは。伊勢路レモン農園の氏原翔平です。</p>
+    <p>子どものころ、学校の文集に「いちばん好きな食べもの：レモン」と書いていました。ホテルで8年働いたあと、地元の三重県紀北町に戻り、レモン農家になりました。</p>
+    <figure class="photo-frame" style="transform:rotate(-1deg);max-width:440px">
+      <img src="images/bunshu.jpg" alt="小学生のころの文集。好きな食べ物の1位にレモンと書いてある">
+      <figcaption class="cap">実物の文集。「好きな食べ物　1位　レモン」</figcaption>
+    </figure>
+    <p>畑があるのは、伊勢と熊野を結ぶ世界遺産・熊野古道「伊勢路」のふもと。海と山が近いこの町の空気の中で、600本あまりのレモンの木を育てています。収穫後のワックスや防腐剤は使わず、皮まで楽しめるレモンを届けたいと思っています。</p>
+    <p>レモンを届けることは、紀北町を思い出してもらう入口にもなるはず。「三重にも、レモンの産地があるんだ」と、知ってもらえたら嬉しいです。</p>
+  </div>
+</section>
+
+<!-- §4 3つのレモン -->
+<section id="varieties" style="background:#fff">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>うちの畑には、3つのレモンがあります。</h2></div>
+    <p class="sec-lead">それぞれに、得意な料理と、いちばんおいしい季節があります。</p>
+    <figure style="margin:0 0 24px">
+      <img src="images/three_cut.jpg" alt="3品種の断面。ピンクレモネード・姫レモン・マイヤーレモン" style="border-radius:var(--radius);box-shadow:0 6px 22px rgba(60,60,60,.10)">
+      <figcaption style="font-size:11.5px;color:var(--gray);text-align:center;margin-top:8px">切ってみると、三者三様。奥がピンクレモネード、左手前が姫レモン、右手前がマイヤーレモン</figcaption>
+    </figure>
+
+    <article class="variety">
+      <img src="images/meyer.jpg" alt="枝になるイエローマイヤーレモン">
+      <div class="body">
+        <h3>マイヤーレモン</h3>
+        <p class="tagline">主役だけど、でしゃばらない。</p>
+        <p>レモンとオレンジの自然交配で生まれた品種。酸味がまろやかで、料理の中でうまく脇役になれるレモンです。皮までおいしく使えます。10〜11月はグリーン（緑色は国産の証）、12〜1月はイエロー。</p>
+        <img src="images/meyer_cut.jpg" alt="マイヤーレモンの断面。はちみつ色の果肉" style="border-radius:10px;margin-top:12px">
+        <p style="font-size:11.5px;color:var(--gray);text-align:center;margin-top:6px">切ると、はちみつ色の果汁がたっぷり。</p>
+      </div>
+    </article>
+
+    <article class="variety">
+      <img src="images/hime.jpg" alt="木になる姫レモン">
+      <div class="body">
+        <h3>姫レモン</h3>
+        <p class="tagline">小さな実に、山椒のような香り。</p>
+        <p>すだちほどの小さなレモン。独特の香りは、カクテル、和食、エスニック料理の名脇役です。</p>
+        <img src="images/hime_cut.jpg" alt="姫レモンの断面。あざやかなオレンジ色の果肉" style="border-radius:10px;margin-top:12px">
+        <p style="font-size:11.5px;color:var(--gray);text-align:center;margin-top:6px">切ると、あざやかなオレンジ。</p>
+      </div>
+    </article>
+
+    <article class="variety">
+      <img src="images/pink_fruit.jpg" alt="緑のしま模様が入ったピンクレモネードの果実">
+      <div class="body">
+        <h3>ピンクレモネード</h3>
+        <p class="tagline">日本ではほとんど出会えないレモン。</p>
+        <p>果皮に緑のしま模様、果肉はほんのりピンク色。収穫できる数がとても少ない品種です。</p>
+        <img src="images/pink_cut.jpg" alt="ピンクレモネードの断面。果肉がほんのりピンク色" style="border-radius:10px;margin-top:12px">
+        <p style="font-size:11.5px;color:var(--gray);text-align:center;margin-top:6px">切ると、ほんのりピンク。</p>
+        <span class="limited">毎年数量限定・ご予約優先</span><br>
+        <a class="btn btn-line js-line" href="#" style="margin-top:16px;padding:12px 22px;font-size:14px">入荷・予約のお知らせはLINEで</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- §5 レモンの楽しみ方 -->
+<section class="enjoy" id="enjoy">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>搾って、漬けて、飾って、贈って。</h2></div>
+    <img src="images/drink.jpg" alt="輪切りのマイヤーレモンを浮かべたホットレモネード" style="border-radius:var(--radius);margin-bottom:20px;box-shadow:0 6px 22px rgba(60,60,60,.10)">
+    <ul>
+      <li><b>料理に</b>：皮ごと輪切りで鍋やソテーに。前処理がいらないレモンです。</li>
+      <li><b>ドリンクに</b>：生搾りのレモンサワー、はちみつレモン、レモンウォーター。</li>
+      <li><b>仕込みに</b>：レモンシロップ、レモン酒、塩レモン。グリーンの時期がおすすめ。</li>
+      <li><b>お菓子に</b>：完熟イエローは皮ごとケーキやジャムに。</li>
+      <li><b>贈りものに</b>：化粧箱入りのギフトもご用意しています（のし対応）。</li>
+    </ul>
+    <p style="font-size:13px;color:var(--gray)">レシピや使い方は、LINEと農園便りで随時お届けしています。</p>
+    <div style="margin-top:18px">
+      <a class="btn btn-base js-base" href="#">マイヤーレモン果汁は今も購入できます｜オンラインショップへ</a>
+    </div>
+    <div style="margin-top:34px">
+      <p style="font-weight:700;font-size:15px;margin-bottom:4px">レモンのある生活、はじめませんか。</p>
+      <p style="font-size:13px;color:var(--gray)">品種の見分け方や、レモン氷・はちみつレモン・塩レモンの作り方、保存方法をまとめたチラシです。タップで拡大できます。</p>
+      <div class="flyers">
+        <figure>
+          <img class="js-zoom" src="images/flyer_omote.jpg" alt="伊勢路レモン農園チラシ（表）マイヤーレモンの紹介">
+          <figcaption class="cap">マイヤーレモンのこと（表）</figcaption>
+          <a class="dl" href="images/flyer_omote.jpg" download="isejilemon_flyer_omote.jpg">画像を保存</a>
+        </figure>
+        <figure>
+          <img class="js-zoom" src="images/flyer_ura.jpg" alt="伊勢路レモン農園チラシ（裏）レモンの活用法と保存方法">
+          <figcaption class="cap">活用法と保存方法（裏）</figcaption>
+          <a class="dl" href="images/flyer_ura.jpg" download="isejilemon_flyer_ura.jpg">画像を保存</a>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- §6 個人のお客様へ -->
+<section id="personal" style="background:#fff">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>今年のレモン、予約からどうぞ。</h2></div>
+    <div class="panel">
+      <img src="images/packs.jpg" alt="ロゴラベル付きの小袋に包まれたレモンが並ぶ様子" style="border-radius:10px;margin-bottom:18px">
+      <p>販売は<b>10月5日</b>開始。ご予約・先行のご案内は、公式LINEのお友だちに最初にお届けします。</p>
+      <div class="first-reco">🍋 はじめての方は、<b>マイヤーレモン1kg</b> か、<b>3種食べくらべセット</b>がおすすめです。</div>
+      <p><span class="badge-line">LINE限定</span><br>傷や大きさふぞろいの「わけあり品」は、LINEのお友だちだけの限定販売です。</p>
+      <p>年末のギフト（化粧箱・のし対応）は、12月上旬締切を予定しています。3品種が箱をあけた瞬間に彩る、上の写真のようなギフト箱をご用意します。<!-- ★要確認：締切日 --></p>
+      <div class="cta-row">
+        <a class="btn btn-line js-line" href="#">LINEに登録して予約案内を受け取る</a>
+        <a class="btn btn-base js-base" href="#">オンラインショップを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §7 飲食店・宿泊施設の方へ -->
+<section id="business">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>メニュー開発から、いっしょに。</h2></div>
+    <p class="sec-lead">飲食店・カフェ・菓子店・宿泊施設のみなさまへ</p>
+    <div class="panel white">
+      <p>園主は元ホテルマンです。現場で使いやすい形・ロット・納品を、いっしょに考えます。</p>
+      <p>皮まで使えるマイヤーレモンは、ドリンク（グリーン期）からデザート（イエロー期）まで。姫レモン・ピンクレモネードは「よそにない一杯・一皿」の材料になります。生果のほか、<b>マイヤーレモンの果汁とペースト（冷凍）は通年</b>でお届けできます（果汁・ペーストはマイヤーレモンのみ）。</p>
+      <p>同じ紀北町のホテルでは、料理とドリンクで<b>1シーズン100kg以上</b>お使いいただいています。</p>
+      <p>初めてのお店には、<b>用途や時期を伺ったうえで、サンプルをご案内できます</b>。生果は収穫期（10〜1月）のお届けとなります。品種や数量は、その時期の収穫状況に合わせてご相談ください。</p>
+      <div class="cta-row">
+        <a class="btn btn-biz js-mail" href="#">サンプルについて相談する（メール）</a>
+        <a class="btn btn-biz js-pricepdf" href="#" style="display:none">お取引価格表（PDF）を見る</a>
+      </div>
+      <p class="cta-note">※「店名・ご住所・使ってみたいメニュー」を添えてご連絡ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- §8 よくある質問 -->
+<section id="faq" style="background:#fff">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>よくある質問</h2></div>
+    <details><summary>いつから買えますか？</summary><div class="a">毎年10月5日「レモンの日」から販売を開始します。ご予約・先行案内は公式LINEでお知らせします。</div></details>
+    <details><summary>どこで買えますか？</summary><div class="a">オンラインショップ（BASE）のほか、紀北町の「まちライブラリー＠きほく」、出店イベントでもお買い求めいただけます。</div></details>
+    <details><summary>品種は選べますか？</summary><div class="a">マイヤーレモン・姫レモン・ピンクレモネードを品種ごとに販売しています。ピンクレモネードは数量限定・ご予約優先です。</div></details>
+    <details><summary>送料はいくらですか？</summary><div class="a">お届け先の地域により異なります。オンラインショップの各商品ページでご確認ください。</div></details>
+    <details><summary>保存方法は？</summary><div class="a">冷蔵保存の場合は、まるごとラップや新聞紙で包み、保存袋に入れてください。保存期間は環境により変わりますが、できるだけ早めにお使いください。長く使いたい場合は、使いやすい形に切って冷凍保存する方法もあります。</div></details>
+    <details><summary>わけあり品はありますか？</summary><div class="a">傷や大きさふぞろいのレモンを、公式LINEのお友だち限定で不定期に販売しています。</div></details>
+    <details><summary>飲食店・宿泊施設でも購入できますか？</summary><div class="a">はい。業務用サイズのほか、マイヤーレモンの果汁・ペーストをご用意しています（果汁・ペーストはマイヤーレモンのみ）。初めてのお店には、用途や時期を伺ったうえでサンプルをご案内しています（生果は収穫期のみ）。メールでご相談ください。</div></details>
+    <details><summary>ギフト対応はできますか？</summary><div class="a">化粧箱入りのギフトをご用意しており、のし対応も可能です。年末のお歳暮は12月上旬締切を予定しています。</div></details>
+  </div>
+</section>
+
+<!-- §9 農園便り・Instagram -->
+<section class="sns" id="sns">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>収穫までの畑を、のぞいてみませんか。</h2></div>
+    <p class="sec-lead">レモンが緑から黄色に変わっていく様子、畑の日々、レシピの試作。収穫までの時間も一緒に楽しんでもらえたら嬉しいです。</p>
+    <div class="cards">
+      <a class="card js-insta" href="#"><div class="t">Instagram</div><div class="d">農園の日々・品種のこと</div></a>
+      <a class="card js-news" href="#"><div class="t">農園便り</div><div class="d js-news-d">畑の記録とレモンの話（準備中）</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- §10 最後のCTA -->
+<section class="final">
+  <div class="wrap fade">
+    <h2>10月5日、いちばん早くお知らせが届く場所。</h2>
+    <p>販売開始・ご予約・わけあり品のご案内は、公式LINEからお届けします。</p>
+    <a class="btn btn-line js-line" href="#">LINEで販売開始のお知らせを受け取る<small>登録は無料・いつでも解除できます</small></a>
+    <div class="sub-links">
+      <a class="js-base" href="#">オンラインショップ</a>
+      <a class="js-insta" href="#">Instagram</a>
+      <a href="#business">飲食店・宿泊施設の方はこちら</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- フッター -->
+<footer>
+  <div class="wrap">
+    <img src="images/logo_yoko.png" alt="伊勢路レモン農園" onerror="this.style.display='none'">
+    <div class="info">
+      伊勢路レモン農園（園主：氏原 翔平）<br>
+      三重県紀北町｜世界遺産・熊野古道「伊勢路」のふもと<br>
+      メール：<a href="mailto:iseji.lemon.farm@gmail.com">iseji.lemon.farm@gmail.com</a>
+    </div>
+    <p class="copy">写真提供：北村果物店｜© 2026 Iseji Lemon Farm</p>
+  </div>
+</footer>
+
+<!-- チラシ拡大表示 -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="チラシ拡大表示">
+  <button class="close" aria-label="閉じる">×</button>
+  <img src="" alt="チラシ拡大">
+</div>
+
+<!-- 画面下部固定 LINEバー -->
+<div class="sticky-cta" role="complementary">
+  <div class="inner">
+    <div class="msg"><b>10月5日、販売開始。</b>お知らせはLINEが最速です</div>
+    <a class="btn btn-line js-line" href="#" style="padding:12px 20px;font-size:14px;box-shadow:none">友だち追加</a>
+  </div>
+</div>
+
+<script>
+/* リンクの一括適用（CONFIGを書き換えるだけで全ボタンに反映） */
+document.querySelectorAll('.js-line').forEach(a => a.href = CONFIG.LINE_URL);
+document.querySelectorAll('.js-base').forEach(a => a.href = CONFIG.BASE_URL);
+document.querySelectorAll('.js-insta').forEach(a => a.href = CONFIG.INSTAGRAM_URL);
+
+/* 事業者向けメール：件名・本文テンプレート入り */
+const mailBody = encodeURIComponent("伊勢路レモン農園 氏原さま\n\nサンプルを希望します。\n\n店名：\nご住所：\nご担当者名：\n使ってみたいメニュー：\n");
+document.querySelectorAll('.js-mail').forEach(a => a.href = `mailto:${CONFIG.CONTACT_MAIL}?subject=${encodeURIComponent("サンプルのご相談（LPより）")}&body=${mailBody}`);
+
+/* 価格表PDF（URLがある時だけ表示） */
+if (CONFIG.PRICE_PDF_URL) {
+  document.querySelectorAll('.js-pricepdf').forEach(a => { a.href = CONFIG.PRICE_PDF_URL; a.style.display = 'inline-block'; });
+}
+
+/* ニュースレター（未創刊なら準備中のまま無効リンク） */
+if (CONFIG.NEWSLETTER_URL) {
+  document.querySelectorAll('.js-news').forEach(a => a.href = CONFIG.NEWSLETTER_URL);
+  const d = document.querySelector('.js-news-d'); if (d) d.textContent = "畑の記録とレモンの話";
+} else {
+  document.querySelectorAll('.js-news').forEach(a => { a.removeAttribute('href'); a.style.opacity = .6; a.style.cursor = 'default'; });
+}
+
+/* カウントダウン（レモンの日まで。過ぎたら文言切替） */
+(function(){
+  const el = document.querySelector('.js-countdown');
+  if (!el) return;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const sale = new Date(CONFIG.SALE_DATE + "T00:00:00");
+  const diff = Math.ceil((sale - today) / 86400000);
+  if (diff > 0)      el.innerHTML = `今年の販売開始まで、あと <b>${diff}</b> 日`;
+  else if (diff === 0) el.innerHTML = `<b>本日、販売開始です！</b>`;
+  else               el.innerHTML = `今年のレモン、<b>販売中</b>です`;
+})();
+
+/* ハンバーガーメニュー */
+const menuBtn = document.getElementById('menuBtn');
+const siteNav = document.getElementById('siteNav');
+function setMenu(open){
+  siteNav.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+}
+menuBtn.addEventListener('click', () => setMenu(!siteNav.classList.contains('open')));
+siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+/* チラシのポップアップ拡大 */
+const lb = document.getElementById('lightbox');
+const lbImg = lb.querySelector('img');
+document.querySelectorAll('.js-zoom').forEach(img => {
+  img.addEventListener('click', () => { lbImg.src = img.src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; });
+});
+function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
+lb.querySelector('.close').addEventListener('click', closeLb);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+/* ふわっと表示 */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+
+<!-- ============================================================
+     ▼▼ 公開前チェックリスト（このコメントは残してOK） ▼▼
+     ------------------------------------------------------------
+     【必須の差し替え】
+     1. CONFIG.LINE_URL … 公式LINEの友だち追加URL（lin.ee/…）
+     【画像（同じリポジトリに置く。既存ファイルはそのまま使えます）】
+     - logo.png（既存・使用中） - producer.jpg（既存・使用中）
+     - meyer_lemon.jpg / hime_lemon.jpg / pink_lemonade.jpg（既存・使用中）
+     - gift_box写真はHTML内に埋め込み済み（ファイル追加は不要）。既存画像は本番URL参照のためそのまま動きます
+     - 追加推奨：文集の写真（§3に挿入する場合）・畑の引き写真
+     【任意の差し替え】
+     2. CONFIG.NEWSLETTER_URL … Substack創刊後に入れる（それまで「準備中」表示）
+     3. CONFIG.PRICE_PDF_URL … お取引価格表PDFをリポジトリに置く場合
+     【要確認（本文コメント参照）】
+     - ギフト締切日（現状「12月上旬予定」表記）
+     ============================================================ -->
+</body>
+</html>
