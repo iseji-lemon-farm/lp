@@ -222,6 +222,31 @@ header.site img{height:34px;width:auto}
   padding:12px 16px;border-radius:0 10px 10px 0;font-size:13.5px;margin:16px 0;
 }
 
+/* ---------- アプリ紹介 ---------- */
+.app-card{
+  background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:24px 22px;margin-top:14px;
+}
+.app-card .app-name{font-weight:700;font-size:17px;margin-bottom:6px}
+.app-card .app-sub{font-size:12.5px;color:var(--gray);margin-bottom:14px}
+.app-card ul{list-style:none;padding:0;margin:14px 0}
+.app-card li{
+  position:relative;padding:8px 0 8px 26px;font-size:14px;
+  border-bottom:1px dashed var(--line-soft);
+}
+.app-card li:last-child{border-bottom:none}
+.app-card li::before{
+  content:"";position:absolute;left:0;top:11px;
+  width:19px;height:14px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 19'%3E%3Cpath d='M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z' fill='%23F2D435' stroke='%238FAE3E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cellipse cx='19.5' cy='3.4' rx='3.8' ry='1.7' fill='%238FAE3E' transform='rotate(-24 19.5 3.4)'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.app-card .meta{font-size:12px;color:var(--gray);margin-top:10px}
+.btn-app{
+  background:#000;color:#fff;padding:13px 24px;font-size:14.5px;
+  display:inline-block;border-radius:999px;text-decoration:none;font-weight:700;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+}
+
 /* ---------- FAQ ---------- */
 details{border-bottom:1px solid var(--line-soft)}
 details summary{
@@ -336,12 +361,12 @@ const CONFIG = {
     <a href="#about">農園と園主のこと</a>
     <a href="#varieties">3つのレモン</a>
     <a href="#enjoy">レモンの楽しみ方</a>
+    <a href="#app">レモン育成ノート（アプリ）</a>
     <a href="#personal">ご予約・ご購入</a>
     <a href="#business">飲食店・宿泊施設の方へ</a>
     <a href="#faq">よくある質問</a>
     <a href="#sns">Instagram・農園便り</a>
     <div class="nav-cta">
-      <a class="btn btn-line js-line" href="#" style="padding:13px 22px;font-size:14.5px;box-shadow:none"><span class="nw">LINEで販売開始の</span><span class="nw">お知らせを受け取る</span></a>
       <a class="js-base nav-sub" href="#">オンラインショップ（BASE）</a>
     </div>
   </nav>
@@ -392,9 +417,6 @@ const CONFIG = {
       <p style="font-size:13px;margin-top:14px">
         まずはフレッシュな酸味のグリーンレモンから。12月にはやさしい甘みのイエローに変わり、<br class="pc-br">1月の完熟まで、季節ごとに違う顔を楽しめます。
       </p>
-      <div style="margin-top:20px">
-        <a class="btn btn-line js-line" href="#"><span class="nw">LINEで販売開始の</span><span class="nw">お知らせを受け取る</span><small>予約・わけあり品・レシピもLINEが最速です</small></a>
-      </div>
     </div>
   </div>
 </section>
@@ -455,8 +477,7 @@ const CONFIG = {
         <p>果皮に緑のしま模様、果肉はほんのりピンク色。収穫できる数がとても少ない品種です。</p>
         <img src="pink_cut.jpg" alt="ピンクレモネードの断面。果肉がほんのりピンク色" style="border-radius:10px;margin-top:12px">
         <p style="font-size:11.5px;color:var(--gray);text-align:center;margin-top:6px">切ると、ほんのりピンク。</p>
-        <span class="limited">毎年数量限定・ご予約優先</span><br>
-        <a class="btn btn-line js-line" href="#" style="margin-top:16px;padding:12px 22px;font-size:14px">入荷・予約のお知らせはLINEで</a>
+        <span class="limited">毎年数量限定・ご予約優先</span>
       </div>
     </article>
   </div>
@@ -495,6 +516,27 @@ const CONFIG = {
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- §5.5 レモン育成ノート（アプリ） -->
+<section id="app">
+  <div class="wrap fade">
+    <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>ご自宅でも、レモンを育ててみませんか。</h2></div>
+    <p class="sec-lead">鉢植えレモン、何をすればいいか迷っていませんか？現役レモン農家（園主）が、収穫まで伴走するアプリを作りました。</p>
+    <div class="app-card">
+      <p class="app-name">🍋 レモン育成ノート</p>
+      <p class="app-sub">iPhone / iPad / Mac(M1以降) / Vision Pro 対応・完全無料</p>
+      <ul>
+        <li>毎日の<b>「今日のチェック」</b>で、水やりや葉のチェックを忘れない</li>
+        <li>月ごとの<b>やることリスト</b>で、剪定・肥料・防虫のタイミングが分かる</li>
+        <li><b>成長記録・図鑑・レシピ</b>もぜんぶ収録</li>
+      </ul>
+      <p class="meta">開発：氏原 翔平（伊勢路レモン農園 園主）</p>
+      <div style="margin-top:16px">
+        <a class="btn-app" href="https://apps.apple.com/jp/app/%E3%83%AC%E3%83%A2%E3%83%B3%E8%82%B2%E6%88%90%E3%83%8E%E3%83%BC%E3%83%88/id6789650451" target="_blank" rel="noopener">App Storeでダウンロード</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -562,12 +604,10 @@ const CONFIG = {
   </div>
 </section>
 
-<!-- §10 最後のCTA -->
+<!-- §10 最後のご案内 -->
 <section class="final">
   <div class="wrap fade">
-    <h2><span class="nw">10月5日、</span><span class="nw">いちばん早く</span><span class="nw">お知らせが届く場所。</span></h2>
-    <p>販売開始・ご予約・わけあり品のご案内は、公式LINEからお届けします。</p>
-    <a class="btn btn-line js-line" href="#"><span class="nw">LINEで販売開始の</span><span class="nw">お知らせを受け取る</span><small>登録は無料・いつでも解除できます</small></a>
+    <h2><span class="nw">最後まで</span><span class="nw">ご覧いただき</span><span class="nw">ありがとうございます。</span></h2>
     <div class="sub-links">
       <a class="js-base" href="#">オンラインショップ</a>
       <a class="js-insta" href="#">Instagram</a>
