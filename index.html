@@ -133,6 +133,106 @@ header.site img{height:34px;width:auto}
 .hero .cta{margin-top:28px}
 .hero .both-welcome{margin-top:14px;font-size:12.5px;color:var(--gray)}
 
+/* ---------- ファーストビュー：人物ダイカットパネル ----------
+   白フチは画像に焼き込み済み（lemon-standee.webp）。
+   ここでは「厚紙の切り口」と「ページから少し浮いた影」だけをCSSで足す */
+.hero{padding-top:40px}
+.hero-fv{
+  display:grid;grid-template-columns:minmax(0,1fr);
+  grid-template-areas:"eyebrow" "quote" "visual" "body" "cta";
+}
+.hero .eyebrow{
+  grid-area:eyebrow;justify-self:start;
+  font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--leaf-deep);
+  background:var(--band);border-radius:999px;padding:4px 14px;margin-bottom:12px;
+}
+.hero .quote{grid-area:quote}
+.hero .hero-body{grid-area:body}
+.hero .cta{grid-area:cta}
+.hero .sub-links{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:16px;font-size:13.5px;font-weight:700}
+.hero .sub-links a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--lemon);padding-bottom:1px}
+.hero .sub-links a::after{content:" →";color:var(--leaf-deep)}
+
+.hero-visual{
+  grid-area:visual;justify-self:center;position:relative;
+  width:min(70vw,330px);margin:26px 0 14px;
+  animation:standee-in .9s cubic-bezier(.2,.7,.3,1) .15s both;
+}
+/* 後ろのレモン色の円：人物の頭と足もとは円からはみ出す */
+.hero-visual .stage{
+  position:absolute;left:-6%;right:-6%;top:20%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%, #FBE889 0%, var(--lemon) 58%, #EDC92C 100%);
+  opacity:.9;
+}
+.hero-visual .stage::after{ /* 葉色の小さな円 */
+  content:"";position:absolute;right:-4%;top:-6%;width:24%;aspect-ratio:1;border-radius:50%;
+  background:var(--band);border:2px solid #DCE6C3;
+}
+.standee{position:relative;transform:rotate(1.6deg);transform-origin:50% 100%}
+.standee .bob{animation:standee-bob 6s ease-in-out 1.2s infinite}
+.standee img{
+  width:100%;height:auto;aspect-ratio:963/1431;
+  filter:
+    drop-shadow(0 1px 0 #E6E1D1)            /* 厚紙の切り口（うすいグレー） */
+    drop-shadow(1px 1.5px 0 #D3CCB6)
+    drop-shadow(2px 4px 3px rgba(70,58,20,.16))   /* 接地に近い影 */
+    drop-shadow(16px 22px 20px rgba(70,58,20,.20)); /* 1〜2cm浮いた影（右下へ） */
+}
+/* 手書き風メモと矢印 */
+.hero-visual .note{
+  position:absolute;left:-14%;top:3%;
+  font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12.5px;line-height:1.45;
+  color:var(--leaf-deep);transform:rotate(-8deg);text-align:center;
+}
+.hero-visual .note svg{display:block;margin:2px 0 0 26px}
+/* 丸シール：パネルの手前に貼ってある */
+.hero-visual .sticker{
+  position:absolute;left:-10%;bottom:10%;z-index:2;
+  width:31%;aspect-ratio:1;border-radius:50%;
+  background:#fff;color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  font-family:'Zen Maru Gothic',sans-serif;font-weight:700;line-height:1.2;
+  box-shadow:0 0 0 4px var(--lemon) inset,0 0 0 6px #fff inset,0 5px 12px rgba(70,58,20,.18);
+  transform:rotate(-10deg);
+}
+.hero-visual .sticker b{font-size:clamp(17px,5vw,24px);color:var(--leaf-deep);letter-spacing:.02em}
+.hero-visual .sticker small{font-size:clamp(8.5px,2.4vw,10.5px);margin-top:2px}
+.hero-visual .deco-lemon{position:absolute;right:-8%;bottom:30%;width:15%;transform:rotate(18deg);z-index:2}
+@keyframes standee-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes standee-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){
+  .hero-visual,.standee .bob{animation:none}
+}
+@media (min-width:600px) and (max-width:899px){
+  .hero-visual{width:min(52vw,360px)}
+}
+/* PC：左にコピー、右に人物パネル */
+@media (min-width:900px){
+  .hero{padding:44px 0 36px}
+  .hero .hero-fv{
+    max-width:1120px;padding:0 40px;column-gap:48px;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-rows:1fr auto auto auto auto 1fr;
+    grid-template-areas:". visual" "eyebrow visual" "quote visual" "body visual" "cta visual" ". visual";
+  }
+  .hero .quote{font-size:clamp(28px,2.6vw,36px)}
+  .hero .story{font-size:16px}
+  /* ファーストビュー高さの約8割 */
+  .hero-visual{width:clamp(330px, calc((100vh - 60px) * .8 / 1.486), 440px);margin:8px 40px 8px 0}
+  .hero-visual .note{font-size:14px;left:-22%;top:6%}
+  .hero-more{margin-top:28px}
+}
+
+/* ---------- 「ご予約」セクションで小さく顔を出す ---------- */
+.peek-wrap{position:relative;margin-top:62px}
+.peek-wrap .peek{
+  position:absolute;right:22px;top:-70px;width:86px;z-index:0;transform:rotate(4deg);
+  filter:drop-shadow(0 1px 0 #D3CCB6) drop-shadow(6px 8px 8px rgba(70,58,20,.16));
+}
+.peek-wrap .peek{display:block}
+.peek-wrap .peek img{width:100%;height:auto}
+.peek-wrap .panel{position:relative;z-index:1}
+
 /* ---------- 写真 ---------- */
 .photo-frame{
   background:#fff;padding:10px 10px 14px;border-radius:6px;
@@ -395,15 +495,41 @@ const CONFIG = {
 
 <!-- §1 ファーストビュー -->
 <section class="hero">
-  <div class="wrap">
-    <p class="quote">「<span class="marker">食べものの中で、いちばん好きなのはレモンでした。</span>」</p>
-    <p class="story">小学生の文集にそう書いた少年が、大人になって、<br>三重県紀北町でレモン農家になりました。</p>
-    <p class="name">伊勢路レモン農園｜世界遺産・熊野古道「伊勢路」のふもと</p>
-    <div class="cta">
-      <a class="btn btn-line js-line" href="#"><span class="nw">LINEで販売開始の</span><span class="nw">お知らせを受け取る</span><small>2026年10月5日「レモンの日」販売開始</small></a>
-      <p class="both-welcome">個人のお客様のご購入も、飲食店・宿泊施設さまからのご相談も、どちらも歓迎です。</p>
+  <div class="wrap hero-fv">
+    <p class="eyebrow">三重県・東紀州から</p>
+    <p class="quote">「<span class="marker"><span class="nw">食べものの中で、</span><span class="nw">いちばん好きなのは</span><span class="nw">レモンでした。</span></span>」</p>
+
+    <!-- 人物ダイカットパネル（白フチは画像に含む） -->
+    <div class="hero-visual">
+      <span class="stage" aria-hidden="true"></span>
+      <figure class="standee">
+        <div class="bob">
+          <picture>
+            <source type="image/webp" srcset="lemon-standee.webp">
+            <img src="lemon-standee.png" width="963" height="1431" fetchpriority="high"
+                 alt="レモンの被り物とレモン柄の眼鏡をつけ、伊勢路レモン農園のレモンを手にした園主・氏原翔平">
+          </picture>
+        </div>
+      </figure>
+      <p class="note" aria-hidden="true">園主の<br>氏原です！
+        <svg width="34" height="22" viewBox="0 0 34 22" fill="none" stroke="#5E7A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3 C 10 16, 20 19, 31 15"/><path d="M25 11 L31 15 L25 19"/></svg>
+      </p>
+      <p class="sticker"><b>10.5</b><small>レモンの日<br>販売開始</small></p>
+      <svg class="deco-lemon" viewBox="0 0 26 19" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg>
     </div>
 
+    <div class="hero-body">
+      <p class="story">小学生の文集にそう書いた少年が、大人になって、<br>三重県紀北町でレモン農家になりました。</p>
+      <p class="name">伊勢路レモン農園｜世界遺産・熊野古道「伊勢路」のふもと</p>
+    </div>
+    <div class="cta">
+      <a class="btn btn-line js-line" href="#"><span class="nw">LINEで販売開始の</span><span class="nw">お知らせを受け取る</span><small>2026年10月5日「レモンの日」販売開始</small></a>
+      <p class="sub-links"><a href="#varieties">3つのレモンを見てみる</a><a href="#about">伊勢路レモン農園について</a></p>
+      <p class="both-welcome">個人のお客様のご購入も、飲食店・宿泊施設さまからのご相談も、どちらも歓迎です。</p>
+    </div>
+  </div>
+
+  <div class="wrap hero-more">
     <figure class="photo-frame">
       <img src="hero_giftbox.jpg" alt="伊勢路レモン農園の3品種：ピンクレモネード・姫レモン・マイヤーレモン" onerror="this.parentElement.style.display='none'">
       <figcaption class="cap">左から、ピンクレモネード・姫レモン・マイヤーレモン</figcaption>
@@ -563,6 +689,11 @@ const CONFIG = {
 <section id="personal" style="background:#fff">
   <div class="wrap fade">
     <div class="sec-head"><svg class="lemon-ill" viewBox="0 0 26 19" width="23" height="17" aria-hidden="true"><path d="M1.5 11 Q1.5 9.5 3.3 9.1 C4.1 6 7.7 4.4 12.3 4.4 C16.9 4.4 20.5 6 21.3 9.1 Q23.1 9.5 23.1 11 Q23.1 12.5 21.3 12.9 C20.5 16 16.9 17.6 12.3 17.6 C7.7 17.6 4.1 16 3.3 12.9 Q1.5 12.5 1.5 11 Z" fill="#F2D435" stroke="#8FAE3E" stroke-width="1.4" stroke-linejoin="round"/><ellipse cx="19.5" cy="3.4" rx="3.8" ry="1.7" fill="#8FAE3E" transform="rotate(-24 19.5 3.4)"/></svg><h2>今年のレモン、予約からどうぞ。</h2></div>
+    <div class="peek-wrap">
+    <picture class="peek" aria-hidden="true">
+      <source type="image/webp" srcset="lemon-standee.webp">
+      <img src="lemon-standee.png" width="963" height="1431" alt="" loading="lazy">
+    </picture>
     <div class="panel">
       <img src="packs.jpg" alt="ロゴラベル付きの小袋に包まれたレモンが並ぶ様子" style="border-radius:10px;margin-bottom:18px">
       <p>販売は<b>10月5日</b>開始。ご予約・先行のご案内は、公式LINEのお友だちに最初にお届けします。</p>
@@ -573,6 +704,7 @@ const CONFIG = {
         <a class="btn btn-line js-line" href="#"><span class="nw">LINEに登録して</span><span class="nw">予約案内を受け取る</span></a>
         <a class="btn btn-base js-base" href="#">オンラインショップを見る</a>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -758,6 +890,7 @@ document.querySelectorAll('.fade').forEach(el => io.observe(el));
      【画像（同じリポジトリに置く。既存ファイルはそのまま使えます）】
      - favicon.ico / favicon-32.png / favicon-512.png / apple-touch-icon.png（ファビコン）
      - lemon_song.mp3（BGM「れもんのうた」）
+     - lemon-standee.webp / lemon-standee.png（ファーストビューの人物パネル。白フチ込み）
      - logo.png（既存・使用中） - producer.jpg（既存・使用中）
      - meyer_lemon.jpg / hime_lemon.jpg / pink_lemonade.jpg（既存・使用中）
      - gift_box写真はHTML内に埋め込み済み（ファイル追加は不要）。既存画像は本番URL参照のためそのまま動きます
