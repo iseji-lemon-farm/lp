@@ -9,6 +9,10 @@
 <meta property="og:description" content="食べものの中で、いちばん好きなのはレモンでした。三重県紀北町の国産レモン農園。">
 <meta property="og:image" content="https://iseji-lemon-farm.github.io/lp/hero_giftbox.jpg">
 <meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -298,6 +302,21 @@ footer .copy{font-size:11px;color:var(--gray);margin-top:18px}
 .sticky-cta .msg{font-size:11px;line-height:1.5;color:var(--gray);flex:1;min-width:0}
 .sticky-cta .msg b{color:var(--ink);font-size:12px;display:block}
 .sticky-cta a{flex-shrink:0}
+
+/* ---------- BGM（れもんのうた）再生ボタン ---------- */
+.bgm-btn{
+  position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:61;
+  display:flex;align-items:center;gap:6px;
+  padding:9px 14px 9px 11px;border-radius:999px;
+  background:var(--paper);color:var(--ink);border:1px solid var(--line-soft);
+  box-shadow:0 4px 14px rgba(0,0,0,.10);
+  font:500 12px/1 "Zen Kaku Gothic New",sans-serif;cursor:pointer;
+}
+.bgm-btn .ic{width:22px;height:22px;border-radius:50%;background:var(--lemon);display:grid;place-items:center;font-size:10px}
+.bgm-btn.playing .ic{animation:bgm-pulse 1.6s ease-in-out infinite}
+@keyframes bgm-pulse{50%{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.bgm-btn.playing .ic{animation:none}}
+.bgm-btn:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
 
 /* ---------- ふわっと表示（reduced motion対応） ---------- */
 .nw{display:inline-block}
@@ -637,6 +656,12 @@ const CONFIG = {
   <img src="" alt="チラシ拡大">
 </div>
 
+<!-- BGM：れもんのうた（しょっぴー作）。自動再生はせず、ボタンで再生 -->
+<audio id="bgm" src="lemon_song.mp3" preload="none" loop></audio>
+<button type="button" class="bgm-btn" id="bgmBtn" aria-pressed="false" aria-label="れもんのうたを再生">
+  <span class="ic" aria-hidden="true">♪</span><span class="lbl">れもんのうた</span>
+</button>
+
 <!-- 画面下部固定 LINEバー -->
 <div class="sticky-cta" role="complementary">
   <div class="inner">
@@ -703,6 +728,23 @@ lb.addEventListener('click', e => { if (e.target !== lbImg) closeLb(); });
 lb.querySelector('.close').addEventListener('click', closeLb);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
+/* BGM 再生／一時停止 */
+(function(){
+  const audio = document.getElementById('bgm');
+  const btn = document.getElementById('bgmBtn');
+  const ic = btn.querySelector('.ic');
+  function sync(){
+    const on = !audio.paused;
+    btn.classList.toggle('playing', on);
+    btn.setAttribute('aria-pressed', on);
+    btn.setAttribute('aria-label', on ? 'れもんのうたを一時停止' : 'れもんのうたを再生');
+    ic.textContent = on ? '❚❚' : '♪';
+  }
+  btn.addEventListener('click', () => { audio.paused ? audio.play().catch(()=>{}) : audio.pause(); });
+  audio.addEventListener('play', sync);
+  audio.addEventListener('pause', sync);
+})();
+
 /* ふわっと表示 */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll('.fade').forEach(el => io.observe(el));
@@ -714,6 +756,8 @@ document.querySelectorAll('.fade').forEach(el => io.observe(el));
      【必須の差し替え】
      1. CONFIG.LINE_URL … 公式LINEの友だち追加URL（lin.ee/…）
      【画像（同じリポジトリに置く。既存ファイルはそのまま使えます）】
+     - favicon.ico / favicon-32.png / favicon-512.png / apple-touch-icon.png（ファビコン）
+     - lemon_song.mp3（BGM「れもんのうた」）
      - logo.png（既存・使用中） - producer.jpg（既存・使用中）
      - meyer_lemon.jpg / hime_lemon.jpg / pink_lemonade.jpg（既存・使用中）
      - gift_box写真はHTML内に埋め込み済み（ファイル追加は不要）。既存画像は本番URL参照のためそのまま動きます

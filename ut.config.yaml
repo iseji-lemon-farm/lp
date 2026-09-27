@@ -1,0 +1,64 @@
+version: "2.0"
+project:
+  name: "伊勢路レモン農園 LP"
+  type: "content-service"
+  root: "/Users/shoheiujihara/Desktop/AI/projects/伊勢路レモン農園"
+
+test:
+  mode: "hybrid"
+  environment: "production"
+  base_url: "https://iseji-lemon-farm.github.io/lp/"
+  participant_profile: "LPの想定読者（レモン購入を検討する個人客、メニュー開発を検討する飲食店・宿泊施設の担当者）"
+  participant_count: 1
+  moderator: "園主（氏原さん）"
+  locale: "ja-JP"
+
+sources:
+  requirements: []
+  design: ["index.html"]
+  change_sources: ["manual"]
+  requirement_id_pattern: ""
+
+artifacts:
+  root: "docs/ut"
+  format: "html"
+  create_participant_view: true
+  create_moderator_view: true
+
+execution:
+  order: ["non-mutating"]
+  # 本サイトは公開中の静的LP。UTは閲覧・確認のみとし、実データ変更を行わない。
+  # LINE登録・購入・メール送信・アプリDLなど外部影響のある操作はリンク遷移の確認までに留める。
+  allow_production_mutation: false
+  require_confirmation_for_external_effects: true
+
+test_data:
+  # 閲覧のみのUTのためテストデータは作成しない
+  enabled: false
+  prefix: "UT-{date}-{run_id}-"
+  cleanup: "disabled"
+  require_baseline: false
+  require_dry_run: false
+  require_explicit_approval: true
+
+observation:
+  capture_task_time: false
+  capture_quotes: true
+  capture_screenshots: "optional"
+  anonymize_participants: true
+  recording: "disabled"
+
+analysis:
+  frameworks: ["nielsen-10", "impact-effect-efficiency-satisfaction", "ux-five-planes"]
+  root_issue_target: "3-8"
+  confidence_levels: ["high", "medium", "low"]
+
+# --- メモ（セットアップ時の把握事項） ---
+# 公開URL: https://iseji-lemon-farm.github.io/lp/ （ルート https://iseji-lemon-farm.github.io/ は404）
+# ローカル正本: このフォルダの index.html + images/（Gitリポジトリではない）
+# 主要CTA・外部リンク（irreversible-or-external-effect に相当。UTではクリック後の実行前で停止）:
+#   - LINE登録: https://lin.ee/OiB4KGi
+#   - オンラインショップ(BASE): https://isejilemon.base.shop/
+#   - App Store（レモン育成ノート）: id6789650451
+#   - サンプル相談メール: mailto:iseji.lemon.farm@gmail.com（件名・本文テンプレート付き）
+#   - Instagram: https://www.instagram.com/iseji_lemon_farm/
